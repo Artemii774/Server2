@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Storage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div>
+        <h1>☁️ Cloud Storage</h1>
+        <div id="userInfo" class="user-info">Не выполнен вход</div>
+    </div>
+    <span id="status">Проверка сервера...</span>
+</header>
+
+<main>
+    <!-- LOGIN FORM -->
+    <section id="loginSection" class="login-card">
+        <div class="login-icon">☁️</div>
+        <h2>Добро пожаловать</h2>
+        <p>Введите ваш Gmail и имя пользователя, чтобы открыть хранилище.</p>
+
+        <form id="loginForm" class="login-form">
+            <input type="email" id="emailInput" placeholder="Ваш Gmail (например: user@gmail.com)" required>
+            <input type="text" id="usernameInput" placeholder="Имя (для рабочего стола)">
+            <button type="submit" class="google-button">Войти в хранилище</button>
+        </form>
+    </section>
+
+    <!-- CLOUD INTERFACE -->
+    <section id="cloudSection" class="hidden">
+        <section class="toolbar">
+            <button id="uploadButton">⬆️ Загрузить файл</button>
+            <button id="folderButton">📁 Новая папка</button>
+            <button id="refreshButton">🔄 Обновить</button>
+            <button id="logoutButton" class="logout">Выйти</button>
+            <input type="file" id="fileInput" hidden>
+        </section>
+
+        <section class="breadcrumb-card">
+            <span>📂</span>
+            <span id="currentPath">Мои файлы</span>
+        </section>
+
+        <section class="storage">
+            <div class="storage-header">
+                <div>
+                    <h2>Мои файлы</h2>
+                    <p>Только ваши файлы</p>
+                </div>
+                <div id="userStorage" class="user-storage">0 B</div>
+            </div>
+            <div id="fileList">Загрузка...</div>
+        </section>
+    </section>
+</main>
+
+<button id="adminLink" class="admin-link">Администратор</button>
+
+<div id="adminModal" class="modal hidden">
+    <div class="modal-content">
+        <button id="closeAdmin" class="modal-close">×</button>
+        <h2>🔐 Администратор</h2>
+        <div id="adminLogin">
+            <p>Введите пароль администратора.</p>
+            <input id="adminPassword" type="password" placeholder="Пароль">
+            <button id="adminLoginButton">Войти</button>
+            <div id="adminError"></div>
+        </div>
+        <div id="adminPanel" class="hidden">
+            <div class="admin-grid">
+                <div class="stat"><span>👥 Пользователей</span><strong id="adminUsers">0</strong></div>
+                <div class="stat"><span>💾 Использовано</span><strong id="adminUsed">0 GB</strong></div>
+                <div class="stat"><span>🟢 Свободно</span><strong id="adminFree">0 GB</strong></div>
+                <div class="stat"><span>💽 Всего</span><strong id="adminTotal">500 GB</strong></div>
+            </div>
+            <div class="admin-users">
+                <h3>Пользователи</h3>
+                <div id="adminUserList">Загрузка...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
